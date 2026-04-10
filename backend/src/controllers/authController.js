@@ -17,7 +17,7 @@ export async function register(req, res, next) {
       return res.status(409).json({ message: 'Email already registered' });
     }
     const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);
-    const user = await User.create({ email: email.toLowerCase(), passwordHash });
+    const user = await User.create({ email: email.toLowerCase(), passwordHash, authProvider: 'local' });
     const token = signToken(user._id.toString());
     res.status(201).json({
       token,
@@ -38,6 +38,9 @@ export async function login(req, res, next) {
     const user = await User.findOne({ email: email.toLowerCase() }).select('+passwordHash');
     if (!user) {
       return res.status(401).json({ message: 'Invalid email or password' });
+    }
+    if (!user.passwordHash) {
+      return res.status(400).json({ message: 'This account uses social login. Continue with provider.' });
     }
     const ok = await bcrypt.compare(password, user.passwordHash);
     if (!ok) {

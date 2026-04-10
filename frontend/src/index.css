@@ -64,12 +64,25 @@ body {
 
 /* Explicit fix for dashboard links section in light mode */
 :root[data-theme='light'] .links-section-card {
-  background-color: rgb(255 255 255) !important;
+  background-color: rgb(241 245 249) !important;
   border-color: rgb(203 213 225) !important;
 }
 
 :root[data-theme='light'] .links-section-table {
-  background-color: rgb(255 255 255) !important;
+  background-color: rgb(241 245 249) !important;
   border-color: rgb(203 213 225) !important;
   box-shadow: 0 0 0 1px rgba(203, 213, 225, 0.5) !important;
+}
+
+/* Keep "Your links" light-mode surface fully uniform */
+:root[data-theme='light'] .links-section-table thead,
+:root[data-theme='light'] .links-section-table tbody,
+:root[data-theme='light'] .links-section-table tr,
+:root[data-theme='light'] .links-section-table tr.odd\:bg-slate-950,
+:root[data-theme='light'] .links-section-table tr.even\:bg-slate-900\/40 {
+  background-color: rgb(241 245 249) !important;
+}
+
+:root[data-theme='light'] .links-section-table thead th {
+  background-color: rgb(226 232 240) !important;
 }
