@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../api/client';
 import { useAuth } from '../context/AuthContext.jsx';
+import SocialAuthButtons from '../components/SocialAuthButtons.jsx';
 
 export default function RegisterPage() {
   const { login } = useAuth();
@@ -42,6 +43,12 @@ export default function RegisterPage() {
             {error}
           </div>
         )}
+        <SocialAuthButtons />
+        <div className="flex items-center gap-3 text-slate-500 text-xs">
+          <span className="h-px bg-slate-700 flex-1" />
+          <span>or sign up with email</span>
+          <span className="h-px bg-slate-700 flex-1" />
+        </div>
         <div>
           <label htmlFor="reg-email" className="block text-sm text-slate-400 mb-1">
             Email

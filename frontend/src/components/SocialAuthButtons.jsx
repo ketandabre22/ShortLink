@@ -11,30 +11,6 @@ const SOCIALS = [
       </svg>
     ),
   },
-  {
-    key: 'facebook',
-    label: 'Continue with Facebook',
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true">
-        <path
-          fill="#1877F2"
-          d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.6 4.5-4.6 1.3 0 2.7.2 2.7.2V8h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"
-        />
-      </svg>
-    ),
-  },
-  {
-    key: 'apple',
-    label: 'Continue with Apple',
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true">
-        <path
-          fill="currentColor"
-          d="M16.7 12.8c0-2.5 2-3.7 2-3.8-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.8-.4 7 1.2 9.2.8 1.1 1.7 2.3 2.9 2.2 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.9-2.2.9-1.3 1.2-2.5 1.2-2.5-.1 0-2.6-1-2.6-3.3zM14.4 5.8c.6-.7 1-1.8.9-2.8-.9 0-2 .6-2.6 1.3-.6.7-1.1 1.8-1 2.8 1 .1 2-.5 2.7-1.3z"
-        />
-      </svg>
-    ),
-  },
 ];
 
 export default function SocialAuthButtons() {

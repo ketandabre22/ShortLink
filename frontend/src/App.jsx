@@ -5,6 +5,7 @@ import DashboardLayout from './components/DashboardLayout.jsx';
 import HomePage from './pages/HomePage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import RegisterPage from './pages/RegisterPage.jsx';
+import SocialAuthCallbackPage from './pages/SocialAuthCallbackPage.jsx';
 import DashboardOverviewPage from './pages/DashboardOverviewPage.jsx';
 import DashboardPage from './pages/DashboardPage.jsx';
 import AnalyticsPage from './pages/AnalyticsPage.jsx';
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/auth/callback" element={<SocialAuthCallbackPage />} />
 
         <Route
           path="/dashboard"
