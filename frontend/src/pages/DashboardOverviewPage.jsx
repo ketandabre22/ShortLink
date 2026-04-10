@@ -69,7 +69,7 @@ export default function DashboardOverviewPage() {
         </div>
 
         {urls.length === 0 ? (
-          <p className="text-slate-500 text-sm">No links yet. Create one in URL Manager.</p>
+          <p className="text-slate-500 text-sm">No links yet. Create one in Create URL.</p>
         ) : (
           <div className="overflow-x-auto rounded-xl border border-slate-700 bg-slate-950 shadow-[0_0_0_1px_rgba(30,41,59,0.4)] links-section-table">
             <table className="w-full text-sm text-left border-collapse">

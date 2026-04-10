@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import api from '../api/client';
 import { useAuth } from '../context/AuthContext.jsx';
 import SocialAuthButtons from '../components/SocialAuthButtons.jsx';
 
 export default function LoginPage() {
-  const { login } = useAuth();
+  const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || '/dashboard';
@@ -15,7 +15,19 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const oauthError = new URLSearchParams(location.search).get('error');
+  const [oauthError, setOauthError] = useState(() => new URLSearchParams(location.search).get('error') || '');
+
+  useEffect(() => {
+    if (oauthError && location.pathname === '/login') {
+      navigate('/login', { replace: true });
+    }
+  }, [oauthError, location.pathname, navigate]);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/dashboard', { replace: true });
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,7 +52,18 @@ export default function LoginPage() {
       <form onSubmit={handleSubmit} className="space-y-4 bg-slate-900 border border-slate-800 rounded-2xl p-6">
         {(error || oauthError) && (
           <div className="text-red-400 text-sm bg-red-950/50 border border-red-900 rounded-lg px-3 py-2">
-            {error || oauthError}
+            <div className="flex items-center justify-between gap-3">
+              <span>{error || oauthError}</span>
+              {oauthError && (
+                <button
+                  type="button"
+                  onClick={() => setOauthError('')}
+                  className="text-red-300 hover:text-red-200 text-xs"
+                >
+                  Dismiss
+                </button>
+              )}
+            </div>
           </div>
         )}
         <SocialAuthButtons />

@@ -24,6 +24,7 @@ export default function SocialAuthCallbackPage() {
     try {
       const user = JSON.parse(userRaw);
       login(token, user);
+      sessionStorage.setItem('social_login_success', '1');
       navigate('/dashboard', { replace: true });
     } catch {
       navigate('/login?error=Invalid social login response', { replace: true });

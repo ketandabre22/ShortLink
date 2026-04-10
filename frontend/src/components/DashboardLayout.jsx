@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 
 const tabClass = ({ isActive }) =>
@@ -6,8 +7,25 @@ const tabClass = ({ isActive }) =>
   }`;
 
 export default function DashboardLayout() {
+  const [showSocialToast, setShowSocialToast] = useState(false);
+
+  useEffect(() => {
+    if (sessionStorage.getItem('social_login_success') === '1') {
+      sessionStorage.removeItem('social_login_success');
+      setShowSocialToast(true);
+      const timer = setTimeout(() => setShowSocialToast(false), 3000);
+      return () => clearTimeout(timer);
+    }
+    return undefined;
+  }, []);
+
   return (
     <div className="space-y-6">
+      {showSocialToast && (
+        <div className="rounded-lg border border-emerald-700 bg-emerald-950/60 px-4 py-2 text-sm text-emerald-300">
+          Signed in with Google successfully.
+        </div>
+      )}
       <div>
         <h1 className="text-2xl font-bold text-white">Dashboard</h1>
         <p className="text-slate-400 text-sm mt-1">
