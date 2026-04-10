@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-slate-950 text-slate-100 min-h-screen;
+}
+
+:root[data-theme='light'] body {
+  @apply bg-slate-100 text-slate-900;
+}
+
+/* Light theme overrides for existing dark-first utility classes */
+:root[data-theme='light'] .bg-slate-950 {
+  background-color: rgb(248 250 252) !important;
+}
+
+:root[data-theme='light'] .bg-slate-900,
+:root[data-theme='light'] .bg-slate-900\/70,
+:root[data-theme='light'] .bg-slate-900\/80 {
+  background-color: rgb(255 255 255) !important;
+}
+
+:root[data-theme='light'] .bg-slate-800,
+:root[data-theme='light'] .bg-slate-800\/80 {
+  background-color: rgb(241 245 249) !important;
+}
+
+:root[data-theme='light'] .border-slate-900,
+:root[data-theme='light'] .border-slate-800,
+:root[data-theme='light'] .border-slate-700 {
+  border-color: rgb(203 213 225) !important;
+}
+
+:root[data-theme='light'] .text-white,
+:root[data-theme='light'] .text-slate-100,
+:root[data-theme='light'] .text-slate-200,
+:root[data-theme='light'] .text-slate-300 {
+  color: rgb(15 23 42) !important;
+}
+
+:root[data-theme='light'] .text-slate-400,
+:root[data-theme='light'] .text-slate-500 {
+  color: rgb(71 85 105) !important;
+}
+
+:root[data-theme='light'] .hover\:bg-slate-800:hover,
+:root[data-theme='light'] .hover\:bg-slate-900:hover,
+:root[data-theme='light'] .hover\:bg-slate-900\/80:hover {
+  background-color: rgb(226 232 240) !important;
+}
+
+:root[data-theme='light'] .bg-red-950\/50 {
+  background-color: rgb(254 242 242) !important;
+}
+
+:root[data-theme='light'] .border-red-900 {
+  border-color: rgb(252 165 165) !important;
+}
+
+:root[data-theme='light'] .text-red-400 {
+  color: rgb(220 38 38) !important;
+}
+
+/* Explicit fix for dashboard links section in light mode */
+:root[data-theme='light'] .links-section-card {
+  background-color: rgb(255 255 255) !important;
+  border-color: rgb(203 213 225) !important;
+}
+
+:root[data-theme='light'] .links-section-table {
+  background-color: rgb(255 255 255) !important;
+  border-color: rgb(203 213 225) !important;
+  box-shadow: 0 0 0 1px rgba(203, 213, 225, 0.5) !important;
+}
