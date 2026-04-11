@@ -18,7 +18,7 @@ export default function RegisterPage() {
     setError('');
     setLoading(true);
     try {
-      const { data } = await api.post('/auth/register', { email, password });
+      const { data } = await api.post('/api/auth/register', { email, password });
       login(data.token, data.user);
       navigate('/dashboard', { replace: true });
     } catch (err) {
