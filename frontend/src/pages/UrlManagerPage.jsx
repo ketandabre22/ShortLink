@@ -95,7 +95,7 @@ export default function UrlManagerPage() {
                   <td className="px-4 py-3 text-slate-300">{row.clickCount}</td>
                   <td className="px-4 py-3 text-slate-400 whitespace-nowrap">{formatDate(row.createdAt)}</td>
                   <td className="px-4 py-3 space-x-2 whitespace-nowrap">
-                    <Link to={`/dashboard/analytics/${row.id}`} className="text-sky-400 hover:underline">
+                    <Link to={`/dashboard/analytics/${row._id}`} className="text-sky-400 hover:underline">
                       Analytics
                     </Link>
                     <button
