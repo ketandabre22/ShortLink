@@ -28,7 +28,7 @@ export default function DashboardPage() {
         ...(form.customCode.trim() ? { customCode: form.customCode.trim() } : {}),
         ...(form.expiresAt ? { expiresAt: new Date(form.expiresAt).toISOString() } : {}),
       };
-      const { data } = await api.post('/url/shorten', body);
+      const { data } = await api.post('/api/url/shorten', body);
       setLastCreated(data);
       setForm({ url: '', customCode: '', expiresAt: '' });
     } catch (err) {
