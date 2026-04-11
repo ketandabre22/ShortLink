@@ -95,7 +95,7 @@ export default function DashboardOverviewPage() {
                     <td className="px-4 py-3 text-slate-400 whitespace-nowrap">{formatDate(row.createdAt)}</td>
                     <td className="px-4 py-3 whitespace-nowrap">
                       <div className="inline-flex items-center gap-3">
-                        <Link to={`/dashboard/analytics/${row.id}`} className="text-sky-400 hover:underline">
+                        <Link to={`/dashboard/analytics/${row._id}`} className="text-sky-400 hover:underline">
                           Analytics
                         </Link>
                         <button
