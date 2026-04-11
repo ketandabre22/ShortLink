@@ -40,7 +40,7 @@ export default function UrlManagerPage() {
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this short URL?')) return;
     try {
-      await api.delete(`/url/${id}`);
+      await api.delete(`/url/${row._id}`);
       await loadUrls();
     } catch (err) {
       alert(err.response?.data?.message || 'Delete failed');
