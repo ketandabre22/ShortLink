@@ -22,7 +22,7 @@ export default function AnalyticsPage() {
     (async () => {
       setError('');
       try {
-        const { data: res } = await api.get(`/url/analytics/${id}`, { params: { days } });
+        const { data: res } = await api.get(`/api/url/analytics/${id}`, { params: { days }, });
         if (!cancelled) setData(res);
       } catch (err) {
         if (!cancelled) setError(err.response?.data?.message || 'Failed to load analytics');
