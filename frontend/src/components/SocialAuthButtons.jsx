@@ -15,7 +15,7 @@ const SOCIALS = [
 
 export default function SocialAuthButtons() {
   const startSocialAuth = (provider) => {
-    window.location.href = `${import.meta.env.VITE_API_URL}/api/auth/social/${pfrovider}`;
+    window.location.href = `${import.meta.env.VITE_API_URL}/api/auth/social/${provider}`;
   };
 
   return (
