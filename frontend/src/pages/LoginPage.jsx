@@ -34,7 +34,7 @@ export default function LoginPage() {
     setError('');
     setLoading(true);
     try {
-      const { data } = await api.post('/auth/login', { email, password });
+      const { data } = await api.post('/api/auth/login', { email, password });
       login(data.token, data.user);
       navigate(from, { replace: true });
     } catch (err) {
