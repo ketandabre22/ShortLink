@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useParams } from 'react-router-dom';
 import Layout from './components/Layout.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
 import DashboardLayout from './components/DashboardLayout.jsx';
@@ -9,6 +9,11 @@ import SocialAuthCallbackPage from './pages/SocialAuthCallbackPage.jsx';
 import DashboardOverviewPage from './pages/DashboardOverviewPage.jsx';
 import DashboardPage from './pages/DashboardPage.jsx';
 import AnalyticsPage from './pages/AnalyticsPage.jsx';
+
+function LegacyAnalyticsRedirect() {
+  const { id } = useParams();
+  return <Navigate to={`/dashboard/analytics/${id}`} replace />;
+}
 
 export default function App() {
   return (
@@ -32,7 +37,7 @@ export default function App() {
           <Route path="analytics/:id" element={<AnalyticsPage />} />
         </Route>
 
-        <Route path="/analytics/:id" element={<Navigate to="/dashboard/links" replace />} />
+        <Route path="/analytics/:id" element={<LegacyAnalyticsRedirect />} />
         <Route path="*" element={<p className="text-slate-500">Page not found.</p>} />
       </Routes>
     </Layout>

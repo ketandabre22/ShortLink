@@ -13,7 +13,7 @@ export default function DashboardOverviewPage() {
 
   const loadData = async (cancelled = false) => {
     try {
-      const { data } = await api.get('/url/user/all');
+      const { data } = await api.get('/api/url/user/all');
       const urls = data.urls || [];
       const totalClicks = urls.reduce((sum, u) => sum + (u.clickCount || 0), 0);
       if (!cancelled) {
@@ -40,7 +40,7 @@ export default function DashboardOverviewPage() {
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this short URL?')) return;
     try {
-      await api.delete(`/url/${row._id}`);
+      await api.delete(`/api/url/${id}`);
       await loadData(false);
     } catch (err) {
       alert(err.response?.data?.message || 'Delete failed');
@@ -95,7 +95,7 @@ export default function DashboardOverviewPage() {
                     <td className="px-4 py-3 text-slate-400 whitespace-nowrap">{formatDate(row.createdAt)}</td>
                     <td className="px-4 py-3 whitespace-nowrap">
                       <div className="inline-flex items-center gap-3">
-                        <Link to={`/dashboard/analytics/${row._id}`} className="text-sky-400 hover:underline">
+                        <Link to={`/dashboard/analytics/${row.id}`} className="text-sky-400 hover:underline">
                           Analytics
                         </Link>
                         <button

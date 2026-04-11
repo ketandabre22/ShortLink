@@ -64,7 +64,8 @@ export default function DashboardPage() {
           <div>
             <label className="block text-sm text-slate-400 mb-1">Long URL</label>
             <input
-              type="url"
+              type="text"
+              inputMode="url"
               required
               placeholder="https://example.com/very/long/path"
               value={form.url}

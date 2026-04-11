@@ -78,7 +78,11 @@ export async function shorten(req, res, next) {
     const shortUrl = `${baseUrl()}/${doc.shortCode}`;
     let qrDataUrl = null;
     try {
-      qrDataUrl = await QRCode.toDataURL(shortUrl, { width: 200, margin: 1 });
+      qrDataUrl = await QRCode.toDataURL(shortUrl, {
+        width: 200,
+        margin: 1,
+        errorCorrectionLevel: 'L',
+      });
     } catch (qrErr) {
       console.warn('QR generation failed', qrErr);
     }
